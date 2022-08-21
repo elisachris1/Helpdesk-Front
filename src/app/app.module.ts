@@ -35,6 +35,7 @@ import { TechnicianListComponent } from './components/technician-list/technician
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { TechinicianCreateComponent } from './components/technician/techinician-create/techinician-create.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     HomeComponent,
     HeaderComponent,
     TechnicianListComponent,
-    LoginComponent
+    LoginComponent,
+    TechinicianCreateComponent
   ],
   imports: [
     BrowserModule,
