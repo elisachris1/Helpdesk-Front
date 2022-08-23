@@ -14,4 +14,8 @@ export class TechinicianService {
   findAll(): Observable<technician[]> {
     return this.http.get<technician[]>(`${API_CONFIG.baseUrl}/technicians`);
   }
+
+  create (technician: technician): Observable<technician>{
+    return this.http.post<technician>(`${API_CONFIG.baseUrl}/technicians`, technician);
+  }
 }

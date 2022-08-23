@@ -37,6 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TechinicianCreateComponent } from './components/technician/techinician-create/techinician-create.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,9 @@ import { TechinicianCreateComponent } from './components/technician/techinician-
     timeOut:4000,
     closeButton: true,
     progressBar: true
-   })
+   }),
+  
+   
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
