@@ -8,7 +8,7 @@ import { technician } from '../models/techinician';
   providedIn: 'root'
 })
 export class TechinicianService {
-
+  
   constructor(private http: HttpClient) { }
 
   findById(id: any): Observable<technician>{
@@ -26,4 +26,9 @@ export class TechinicianService {
   update(techinician: technician): Observable<technician>{
     return this.http.put<technician>(`${API_CONFIG.baseUrl}/technicians/${techinician.id}`, techinician);
   }
+
+  delete(id: any): Observable<technician>{
+    return this.http.delete<technician>(`${API_CONFIG.baseUrl}/technicians/${id}`);
+}
+
 }
