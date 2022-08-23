@@ -37,6 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TechinicianCreateComponent } from './components/technician/techinician-create/techinician-create.component';
 import { TechnicianUpdateComponent } from './components/technician/technician-update/technician-update.component';
+import { TechnicianDeleteComponent } from './components/technician/technician-delete/technician-delete.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { TechnicianUpdateComponent } from './components/technician/technician-up
     TechnicianListComponent,
     LoginComponent,
     TechinicianCreateComponent,
-    TechnicianUpdateComponent
+    TechnicianUpdateComponent,
+    TechnicianDeleteComponent
   ],
   imports: [
     BrowserModule,
