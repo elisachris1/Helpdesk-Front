@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import { TechnicianListComponent } from './components/technician-list/technician-list.component';
 import { TechinicianCreateComponent } from './components/technician/techinician-create/techinician-create.component';
+import { TechnicianUpdateComponent } from './components/technician/technician-update/technician-update.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
     component: NavComponent, canActivate: [AuthGuard], children:[
       {path:'home', component: HomeComponent},
       {path: 'technicians', component: TechnicianListComponent},
-      {path: 'technicians/create', component: TechinicianCreateComponent}
+      {path: 'technicians/create', component: TechinicianCreateComponent},
+      {path: 'technicians/update/:id', component: TechnicianUpdateComponent}
     ]
   }
 ];
