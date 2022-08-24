@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
+import { clientCreateComponent } from './components/client/client-create/client-create.component';
+import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
+import { clientListComponent } from './components/client/client-list/client-list.component';
+
+import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -18,7 +23,13 @@ const routes: Routes = [
       {path: 'technicians', component: TechnicianListComponent},
       {path: 'technicians/create', component: TechinicianCreateComponent},
       {path: 'technicians/update/:id', component: TechnicianUpdateComponent},
-      {path: 'technicians/delete/:id', component: TechnicianDeleteComponent}
+      {path: 'technicians/delete/:id', component: TechnicianDeleteComponent},
+
+
+      {path: 'clients', component: clientListComponent},
+      {path: 'clients/create', component: clientCreateComponent},
+      {path: 'clients/update/:id', component: ClientUpdateComponent},
+      {path: 'clients/delete/:id', component: ClientDeleteComponent}
     ]
   }
 ];

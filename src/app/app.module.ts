@@ -38,6 +38,10 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TechinicianCreateComponent } from './components/technician/techinician-create/techinician-create.component';
 import { TechnicianUpdateComponent } from './components/technician/technician-update/technician-update.component';
 import { TechnicianDeleteComponent } from './components/technician/technician-delete/technician-delete.component';
+import { clientCreateComponent } from './components/client/client-create/client-create.component';
+import { clientListComponent } from './components/client/client-list/client-list.component';
+import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
+import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
 
 
 @NgModule({
@@ -50,7 +54,13 @@ import { TechnicianDeleteComponent } from './components/technician/technician-de
     LoginComponent,
     TechinicianCreateComponent,
     TechnicianUpdateComponent,
-    TechnicianDeleteComponent
+    TechnicianDeleteComponent,
+    clientCreateComponent,
+    clientListComponent,
+    ClientDeleteComponent,
+    ClientUpdateComponent
+    
+  
   ],
   imports: [
     BrowserModule,
