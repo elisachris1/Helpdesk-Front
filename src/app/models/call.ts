@@ -1,14 +1,14 @@
 export interface Call{
     
     id?:                   any;
-    dateCreated?:       string;
+    openDate?:       string;
     closeDate?:         string;
     priority:           String;
     status:             String;
     title:              string;
     description:        string;
-    technician:         string;
-    client:             string;
+    technician:            any;
+    client:                any;
     clientName:         string;
     technicianName:     string;
     
