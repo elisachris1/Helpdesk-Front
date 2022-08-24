@@ -5,14 +5,18 @@
 <form class="form">
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Call Title</mat-label>
-      <input matInput placeholder="Ex. Change laptop battery">
+      <input
+      [formControl] = 'title'
+      required
+       matInput
+       placeholder="Ex. Change laptop battery">
     </mat-form-field>
     
   </form>
   <div class="status-priority">
     <mat-form-field appearance="outline">
         <mat-label>Select Status</mat-label>
-        <mat-select>
+        <mat-select [formControl] = 'status'required>
           <mat-option value="0">OPEN</mat-option>
           <mat-option value="1">ONGOING</mat-option>
           <mat-option value="2">CLOSED</mat-option>
@@ -21,7 +25,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Select Priority</mat-label>
-        <mat-select>
+        <mat-select [formControl] = 'priority'required>
           <mat-option value="0">LOW</mat-option>
           <mat-option value="1">MEDIUM</mat-option>
           <mat-option value="2">HIGH</mat-option>
@@ -34,7 +38,7 @@
 
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Select Technician</mat-label>
-        <mat-select>
+        <mat-select [formControl] = 'technician' required>
           <mat-option value="0">Steve</mat-option>
           
         </mat-select>
@@ -46,7 +50,7 @@
 
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Select Client</mat-label>
-        <mat-select>
+        <mat-select [formControl] = 'client' required>
           <mat-option value="0">Daniel Sempere</mat-option>
           
         </mat-select>
@@ -57,11 +61,13 @@
   <form class="form">
       <mat-form-field class="full-width" appearance="outline">
       <mat-label>Leave a description</mat-label>
-      <textarea class="description" matInput placeholder="Ex. Change laptop battery that is no longer working"></textarea>
-    </mat-form-field>
+      <textarea 
+      [formControl] = 'description' required
+      class="description" matInput placeholder="Ex. Change laptop battery that is no longer charging..."></textarea>
+    </mat-form-field >
   </form>
 
-  <button class="full-width mat-elevation-z4" mat-raised-button color="primary">Save</button>
+  <button [disabled]="!validFields()" class="full-width mat-elevation-z4" mat-raised-button color="primary">Save</button>
   <button class="full-width mat-elevation-z4" mat-stroked-button color="warn">Cancel</button>
 
   <p class="full-width">Developed by Elisa Rovani</p>
