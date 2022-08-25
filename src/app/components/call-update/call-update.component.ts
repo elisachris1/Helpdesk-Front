@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Call } from 'src/app/models/call';
 import { client } from 'src/app/models/client';
@@ -41,22 +41,33 @@ export class CallUpdateComponent implements OnInit {
   private clientService: ClientService,
   private technicianService: TechinicianService,
   private toastService: ToastrService,
-  private router: Router
+  private router: Router,
+  private route: ActivatedRoute,
   
   ){ }
 
   ngOnInit(): void {
+    this.call.id = this.route.snapshot.paramMap.get('id');
+    this.findById()
     this.findAllClients();
     this.findAllTechnicians();
   }
 
-  create(): void{
-    this.callService.create(this.call).subscribe(response =>{
-      this.toastService.success('Call created successfully', 'New call');
+  findById(): void{
+    this.callService.findById(this.call.id).subscribe(response =>{
+      this.call = response;
+    }, ex =>{
+      this.toastService.error(ex.error.error);
+    }
+    )
+  }
+
+  update(): void{
+    this.callService.update(this.call).subscribe(response =>{
+      this.toastService.success('Call updated successfully', 'Update call');
       this.router.navigate(['calls']);
     }, ex =>{
-      console.log(ex);
-    
+      
       this.toastService.error(ex.error.error);
     })
   }
@@ -79,5 +90,25 @@ validFields(): boolean{
   this.title.valid && this.description.valid &&
   this.technician.valid &&  this.client.valid
 }
- 
+
+returnStatus(status: any): string {
+  if(status == '0') {
+    return 'OPEN'
+  } else if(status == '1') {
+    return 'ONGOING'
+  } else {
+    return 'CLOSED'
+  }
+}
+
+returnPriority(priority: any): string {
+  if(priority == '0') {
+    return 'LOW'
+  } else if(priority == '1') {
+    return 'MEDIUM'
+  } else {
+    return 'HIGH'
+  }
+}
+
 }
