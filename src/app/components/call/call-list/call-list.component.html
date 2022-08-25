@@ -1,8 +1,8 @@
 <div class="container">
 
-  <h1>Listando chamados</h1>
+  <h1>Call List</h1>
 
-  <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">Novo chamado</button>
+  <button routerLink="create" class="mat-elevation-z8" mat-stroked-button color="primary">New call</button>
 
   <mat-form-field appearance="standard">
      <mat-label>Filter</mat-label>
@@ -10,9 +10,9 @@
    </mat-form-field>
 
    <mat-radio-group color="primary">
-     <mat-radio-button (click)="orderByStatus(0)" value="0">ABERTO</mat-radio-button>
-     <mat-radio-button (click)="orderByStatus(1)" value="1">ANDAMENTO</mat-radio-button>
-     <mat-radio-button (click)="orderByStatus(2)" value="2">ENCERRADO</mat-radio-button>
+     <mat-radio-button (click)="orderByStatus(0)" value="0">OPEN</mat-radio-button>
+     <mat-radio-button (click)="orderByStatus(1)" value="1">ONGOING</mat-radio-button>
+     <mat-radio-button (click)="orderByStatus(2)" value="2">CLOSED</mat-radio-button>
    </mat-radio-group>
 
   <div class="mat-elevation-z8">
