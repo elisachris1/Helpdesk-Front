@@ -11,7 +11,15 @@ export class CallService {
 
   constructor(private http: HttpClient) { }
 
+  findById(id:any):Observable<Call>{
+    return this.http.get<Call>(`${API_CONFIG.baseUrl}/calls/${id}`);
+  }
+
   findAll(): Observable<Call[]>{
     return this.http.get<Call[]>(`${API_CONFIG.baseUrl}/calls`);
+  }
+
+  create(call: Call): Observable<Call>{
+    return this.http.post<Call>(`${API_CONFIG.baseUrl}/calls`, call);
   }
 }

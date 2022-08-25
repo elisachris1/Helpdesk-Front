@@ -1,7 +1,7 @@
 export interface Call{
     
     id?:                   any;
-    openDate?:       string;
+    openDate?:          string;
     closeDate?:         string;
     priority:           String;
     status:             String;

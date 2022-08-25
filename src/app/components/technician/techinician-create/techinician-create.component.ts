@@ -28,7 +28,7 @@ export class TechinicianCreateComponent implements OnInit {
   constructor(
     private service: TechinicianService,
     private toast: ToastrService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {

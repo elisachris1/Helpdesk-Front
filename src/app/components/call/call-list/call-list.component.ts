@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,6 +15,7 @@ export class CallListComponent implements OnInit {
   FILTERED_DATA: Call[] = []
 
   
+  
   displayedColumns: string[] = ['id', 'title', 'client', 'technician','openDate', 'priority', 'status', 'actions'];
   dataSource = new MatTableDataSource<Call>(this.ELEMENT_DATA);
 
@@ -32,7 +32,7 @@ export class CallListComponent implements OnInit {
   findAll(): void{
     this.service.findAll().subscribe(response =>{
       this.ELEMENT_DATA = response;
-      this.dataSource = new MatTableDataSource<Call>(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource<Call>(response);
       this.dataSource.paginator = this.paginator;
     })
   }
@@ -42,22 +42,22 @@ export class CallListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  returnStatus(status: any): string{
-    if(status = '0') {
+  returnStatus(status: any): string {
+    if(status == '0') {
       return 'OPEN'
-    }else if(status ='1'){
+    } else if(status == '1') {
       return 'ONGOING'
-    }else{
+    } else {
       return 'CLOSED'
     }
   }
 
-  returnPriority(priority: any): string{
-    if(priority = '0') {
+  returnPriority(priority: any): string {
+    if(priority == '0') {
       return 'LOW'
-    }else if(priority ='1'){
+    } else if(priority == '1') {
       return 'MEDIUM'
-    }else{
+    } else {
       return 'HIGH'
     }
   }
@@ -69,7 +69,7 @@ export class CallListComponent implements OnInit {
       list.push(element)
     });
     this.FILTERED_DATA = list;
-    this.dataSource = new MatTableDataSource<Call>(this.FILTERED_DATA);
+    this.dataSource = new MatTableDataSource<Call>(list);
     this.dataSource.paginator = this.paginator;
   }
 
